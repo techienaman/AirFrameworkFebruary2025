@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Hurdle_To_Success" class="navigator-link">
-              <span class="suite-name border-passed">Hurdle To Success</span>
+              <span class="suite-name border-failed">Hurdle To Success</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,26 +92,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">2 methods, 2 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Hurdle_To_Success" class="hide-methods passed suite-Hurdle_To_Success"> (hide)</a> <!-- hide-methods passed suite-Hurdle_To_Success -->
-                      <a href="#" panel-name="suite-Hurdle_To_Success" class="show-methods passed suite-Hurdle_To_Success"> (show)</a> <!-- show-methods passed suite-Hurdle_To_Success -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Hurdle_To_Success" class="hide-methods failed suite-Hurdle_To_Success"> (hide)</a> <!-- hide-methods failed suite-Hurdle_To_Success -->
+                      <a href="#" panel-name="suite-Hurdle_To_Success" class="show-methods failed suite-Hurdle_To_Success"> (show)</a> <!-- show-methods failed suite-Hurdle_To_Success -->
                     </span>
-                    <div class="method-list-content passed suite-Hurdle_To_Success">
+                    <div class="method-list-content failed suite-Hurdle_To_Success">
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Hurdle_To_Success" title="org.air.tests.LoginTest" class="method navigator-link" hash-for-method="launchURL">launchURL</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Hurdle_To_Success" title="org.air.tests.LoginTest" class="method navigator-link" hash-for-method="launchURL">launchURL</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Hurdle_To_Success -->
+                    </div> <!-- method-list-content failed suite-Hurdle_To_Success -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -123,9 +123,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Hurdle_To_Success" class="panel Hurdle_To_Success">
-          <div class="suite-Hurdle_To_Success-class-passed">
+          <div class="suite-Hurdle_To_Success-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">org.air.tests.LoginTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -134,6 +134,26 @@
                   <a name="launchURL">
                   </a> <!-- launchURL -->
                   <span class="method-name">launchURL</span>
+                  <div class="stack-trace">com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `POJO.ProductDetails` out of START_ARRAY token
+ at [Source: (BufferedInputStream); line: 1, column: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1445)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1219)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1171)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.deserializeFromArray(BeanDeserializerBase.java:1460)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer._deserializeOther(BeanDeserializer.java:185)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:161)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4218)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3251)
+	at Utlities.JacksonUtils.genericdeserializeJson(JacksonUtils.java:19)
+	at org.air.tests.LoginTest.launchURL(LoginTest.java:31)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+... Removed 17 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -141,10 +161,30 @@
                   <a name="launchURL">
                   </a> <!-- launchURL -->
                   <span class="method-name">launchURL</span>
+                  <div class="stack-trace">com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `POJO.ProductDetails` out of START_ARRAY token
+ at [Source: (BufferedInputStream); line: 1, column: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
+	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1445)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1219)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1171)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.deserializeFromArray(BeanDeserializerBase.java:1460)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer._deserializeOther(BeanDeserializer.java:185)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:161)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4218)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3251)
+	at Utlities.JacksonUtils.genericdeserializeJson(JacksonUtils.java:19)
+	at org.air.tests.LoginTest.launchURL(LoginTest.java:31)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+... Removed 17 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Hurdle_To_Success-class-passed -->
+          </div> <!-- suite-Hurdle_To_Success-class-failed -->
         </div> <!-- panel Hurdle_To_Success -->
         <div panel-name="test-xml-Hurdle_To_Success" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -219,16 +259,16 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'launchURL')
 data.setCell(0, 2, 'org.air.tests.LoginTest')
-data.setCell(0, 3, 33327);
+data.setCell(0, 3, 1739);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'launchURL')
 data.setCell(1, 2, 'org.air.tests.LoginTest')
-data.setCell(1, 3, 31331);
+data.setCell(1, 3, 1587);
 window.suiteTableData['Hurdle_To_Success']= { tableData: data, tableDiv: 'times-div-Hurdle_To_Success'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 39 seconds</span>
+              <span class="suite-total-time">Total running time: 4 seconds</span>
               <div id="times-div-Hurdle_To_Success">
               </div> <!-- times-div-Hurdle_To_Success -->
             </div> <!-- times-div -->
@@ -264,12 +304,16 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">launchURL</span>
-                <span class="method-start">3364 ms</span>
+                <span class="method-start">1639 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">launchURL</span>
-                <span class="method-start">8572 ms</span>
+                <span class="method-start">2448 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

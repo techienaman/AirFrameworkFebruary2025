@@ -4,8 +4,11 @@
 /Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/DriverManager/LocalExecution.java
 /Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/DriverManager/RemoteExecution.java
 /Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/POJO/BillingDetails.java
-/Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/POJO/JacksonUtils.java
 /Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/POJO/OmBillingDetails.java
+/Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/POJO/ProductDetails.java
+/Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/Utlities/ConfigLoader.java
+/Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/Utlities/JacksonUtils.java
+/Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/Utlities/PropertiesUtils.java
 /Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/Utlities/TakeScreenShot.java
 /Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/org/air/pages/BasePage.java
 /Users/kumarmayank/Documents/AirFrameworkFebruary2025/src/main/java/org/air/pages/CartPage.java

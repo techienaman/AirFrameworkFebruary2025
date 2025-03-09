@@ -2,6 +2,7 @@ package org.air.tests;
 
 import DriverManager.DriverContext;
 import DriverManager.LocalExecution;
+import Utlities.ConfigLoader;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -18,9 +19,21 @@ public class BaseTest {
 
     @BeforeTest
     @Parameters("browserName")
-    public void initializeDriver(String browserName){
+    public void initializeDriver(@Optional String browserName){
+        if (browserName==null){
+            browserName="Chrome";
+        }
         DriverContext driverContext=new DriverContext(new LocalExecution());
         driver=driverContext.setupDriver(browserName);
+    }
+
+
+    public void load(){
+        //String environment=System.getProperty("env");
+        String url= ConfigLoader.getProperty().getBaseURL();
+        System.out.println(url);
+        driver.get(url);
+
     }
 
 
