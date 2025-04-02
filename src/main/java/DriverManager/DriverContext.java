@@ -8,7 +8,6 @@ public class DriverContext {
 
     public DriverContext(ExecutionStrategy executionStrategy){
         this.executionStrategy=executionStrategy;
-
     }
 
     public WebDriver setupDriver(String browserName){

@@ -1,3 +1,5 @@
 Q1-> What is the significance of -1 as Priority in TestNG
 Ans->Prerequisite test  run before any normal test run thats why we use priority as -1
 
+Q2-MAerge Sort
+

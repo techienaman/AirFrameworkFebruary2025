@@ -23,6 +23,4 @@ public class HomePage extends BasePage {
     public void clickOnStoreLink(){
         headerStore.click();
     }
-
-
 }

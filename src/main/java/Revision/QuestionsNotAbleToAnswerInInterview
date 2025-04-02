@@ -1,0 +1,104 @@
+Q1: What is Idempotency in API?
+Idempotency means that no matter how many times a client sends a request to the server, the state of the server should not change after the first successful request.
+
+Examples of Idempotent HTTP Methods:
+GET → Always idempotent because it only retrieves data and does not modify the backend state.
+DELETE → Idempotent because once a resource is deleted, repeated DELETE requests will have no further effect.
+PUT → Idempotent because it updates a resource. Even if the same request is sent multiple times, the resource remains unchanged after the first successful update.
+Non-Idempotent Method:
+POST → Not idempotent because each time a POST request is sent, a new resource is created, changing the backend state.
+How to Make POST Idempotent?
+Instead of letting POST create a new resource every time, the client can send a unique ID in the request body.
+The server checks if the resource with that ID already exists:
+If yes, it does not create a new resource.
+If no, it creates a new resource.
+This way, POST behaves idempotently by preventing duplicate resource creation.
+
+Q2: What is REST API?
+A REST API (Representational State Transfer API) is an architectural design for web services that follows 6 constraints:
+
+1. Client-Server Architecture
+The client and server should be separate and communicate only through requests and responses.
+Example: A frontend (React app) calling a backend (Spring Boot API).
+2. Statelessness
+Each request should contain all the necessary information so the server can process it without remembering previous requests.
+Example: If you log in to a website, your session should not be stored on the server. Instead, you send authentication tokens in every request.
+3. Cacheable
+The server response should indicate whether it can be cached or not.
+This is done using the Cache-Control header.
+Example:
+Cache-Control: max-age=3600 (cache response for 1 hour)
+If data changes frequently, response header will disable caching.
+4. Uniform Interface
+REST APIs should have a consistent way to interact with resources using HTTP methods:
+GET → Retrieve data
+POST → Create new data
+PUT → Update existing data
+PATCH → Partially update data
+DELETE → Remove data
+5. Layered System
+The API can have multiple layers (security, load balancing, caching) without exposing internal details to the client.
+6. Code on Demand (Optional)
+REST APIs can send executable code (like JavaScript) to the client to execute dynamically.
+Q3: What is Stale Element Exception?
+A StaleElementReferenceException occurs when an element that was previously found in the DOM is no longer valid or accessible.
+
+Why does it happen?
+When AJAX calls or dynamic content updates refresh parts of the page without a full page reload, the DOM structure changes.
+If you try to interact with an old element reference, Selenium throws a StaleElementException.
+Example:
+When you search on Google, after typing a letter, a dropdown suggestion appears without reloading the page.
+This is because an AJAX call fetched new data asynchronously.
+If Selenium tries to interact with an old element before the AJAX update completes, a Stale Element Exception will occur.
+How to Handle Stale Element Exception?
+Use Explicit Wait:
+
+Wait until the element is stable and present again in the DOM.
+java
+Copy
+Edit
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("myElement")));
+Refresh the Element Reference:
+
+If an element becomes stale, find it again before interacting.
+java
+Copy
+Edit
+WebElement element = driver.findElement(By.id("myElement"));
+element.click();  // If StaleElementException occurs, find it again
+Use Try-Catch Block:
+
+If an exception occurs, retry finding the element.
+java
+Copy
+Edit
+try {
+    driver.findElement(By.id("myElement")).click();
+} catch (StaleElementReferenceException e) {
+    driver.findElement(By.id("myElement")).click();
+}
+Q4: What is NoSuchElementException?
+This exception occurs when an element is not present in the DOM at all.
+It usually happens if:
+The locator is incorrect.
+The element has not yet loaded (use wait).
+The element is inside an iframe (switch to the iframe first).
+How to Fix NoSuchElementException?
+Use Explicit Wait:
+java
+Copy
+Edit
+WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("myElement")));
+Check if the element is inside an iframe:
+java
+Copy
+Edit
+driver.switchTo().frame("iframeName");
+Use correct locators (XPath, CSS Selector, etc.).
+Summary
+Concept	Explanation
+Idempotency	Repeating the same API request should not change the backend state. GET, DELETE, and PUT are idempotent. POST is not, but can be made idempotent.
+REST API	An architectural design with 6 constraints (Client-Server, Stateless, Cacheable, Uniform Interface, Layered System, Code on Demand).
+Stale Element Exception	Happens when AJAX calls refresh the DOM without reloading the page. Selenium tries to interact with an outdated element. Fix using Explicit Wait or re-locating the element.
+No Such Element Exception	Element is not found in the DOM. Can be due to incorrect locators, timing issues, or iframe problems. Fix using Explicit Wait, correct locators, or switching frames.
